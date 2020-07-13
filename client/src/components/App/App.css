@@ -1,0 +1,94 @@
+body {
+  font-size: 18px;
+  background-color: hsla(170, 5%, 95%, .5);
+  box-sizing: border-box;
+}
+
+.error-msg {
+  color: rgb(168, 25, 25);
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+.field-error {
+  color: rgb(168,25,25);
+  font-size: .75em;
+  font-weight:bold;
+  margin-bottom: 1em;
+}
+
+.container-row {
+  /* background: #fff; */
+  padding: 1em 2em;
+}
+
+.page-title {
+  color: hsla(170, 5%, 35%, 1);
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-center {
+  justify-items: center;
+}
+
+.fade-enter, .fade-appear {
+  opacity: 0;
+}
+
+.fade-enter-active, .fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.slide-right-enter, .slide-right-appear {
+  transform: translateX(-9999px);
+}
+
+.slide-right-active, .slide-right-appear-active {
+  transform: translateX(0);
+  transition: transform .5s;
+}
+
+.slide-right-exit {
+  transform: translateX(0);
+}
+
+.slide-right-exit-active {
+  transform: translateX(-9999px);
+  transition: transform .5s;
+}
+
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.no-link {
+  text-decoration: none;
+  color: hsla(170, 5%, 35%, 1);
+}
+
+.no-link span {
+  font-size: 30px;
+  padding-left: 20px;
+}
