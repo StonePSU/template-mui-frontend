@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -21,7 +22,7 @@ function MuiSettings(props) {
     const classes = useStyles();
 
     return useAuth(props) && (
-        <>
+        <Fade in={true} timeout={500} direction='up'>
             <Grid container spacing={1} justify="center" direction="row" className={classes.grid}>
                 <Grid item sm={12}>
                     <Paper className={classes.paper} elevation={2}>
@@ -39,7 +40,7 @@ function MuiSettings(props) {
                     </Paper>
                 </Grid>
             </Grid>
-        </>
+        </Fade>
     )
 }
 

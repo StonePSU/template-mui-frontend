@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from 'react-router-dom';
 import MuiLoadingButton from '../MuiLoadingButton';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -53,67 +54,69 @@ export default function Login({ history, signup }) {
     }
 
     return (
-        <Container component="main" maxWidth='xs'>
-            <div className={classes.paper}>
-                <Avatar variant="rounded" className={classes.avatar} width="150px" height="150px">
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign In
+        <Fade in={true} timeout={1000}>
+            <Container component="main" maxWidth='xs'>
+                <div className={classes.paper}>
+                    <Avatar variant="rounded" className={classes.avatar} width="150px" height="150px">
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign In
                 </Typography>
-                <form>
-                    <TextField
-                        name="emailAddress"
-                        margin="normal"
-                        variant="outlined"
-                        required label="Email"
-                        type="email"
-                        id="emailAddress"
-                        disabled={loading}
-                        autoFocus
-                        fullWidth
-                        value={inputs.emailAddress || ''}
-                        onChange={handleInputChange}
-                        helperText={errors.emailAddress}
-                        error={Boolean(errors.emailAddress)}
-                    />
-                    <TextField
-                        name="password"
-                        margin="normal"
-                        variant="outlined"
-                        required
-                        label="Password"
-                        type="password"
-                        id="password"
-                        disabled={loading}
-                        fullWidth
-                        value={inputs.password || ''}
-                        onChange={handleInputChange}
-                        helperText={errors.password}
-                        error={Boolean(errors.password)}
-                    />
-                    <MuiLoadingButton
-                        color="primary"
-                        variant="contained"
-                        fullWidth
-                        type="submit"
-                        handleClick={handleSubmit}
-                        className={classes.submit}
-                        loading={loading}
-                        label="Login"
-                    />
-                </form>
-                <Link
-                    component={RouterLink}
-                    to="/signup"
-                    variant="body2"
-                    className={classes.link}
-                >
-                    Don't have an account, Sign Up
+                    <form>
+                        <TextField
+                            name="emailAddress"
+                            margin="normal"
+                            variant="outlined"
+                            required label="Email"
+                            type="email"
+                            id="emailAddress"
+                            disabled={loading}
+                            autoFocus
+                            fullWidth
+                            value={inputs.emailAddress || ''}
+                            onChange={handleInputChange}
+                            helperText={errors.emailAddress}
+                            error={Boolean(errors.emailAddress)}
+                        />
+                        <TextField
+                            name="password"
+                            margin="normal"
+                            variant="outlined"
+                            required
+                            label="Password"
+                            type="password"
+                            id="password"
+                            disabled={loading}
+                            fullWidth
+                            value={inputs.password || ''}
+                            onChange={handleInputChange}
+                            helperText={errors.password}
+                            error={Boolean(errors.password)}
+                        />
+                        <MuiLoadingButton
+                            color="primary"
+                            variant="contained"
+                            fullWidth
+                            type="submit"
+                            handleClick={handleSubmit}
+                            className={classes.submit}
+                            loading={loading}
+                            label="Login"
+                        />
+                    </form>
+                    <Link
+                        component={RouterLink}
+                        to="/signup"
+                        variant="body2"
+                        className={classes.link}
+                    >
+                        Don't have an account, Sign Up
                 </Link>
-            </div>
-            {/* <MuiErrorSnackbar isError={Boolean(error)} errorMsg={error} handleExit={() => { dispatch(setPageError(null)) }} /> */}
-        </Container>
+                </div>
+                {/* <MuiErrorSnackbar isError={Boolean(error)} errorMsg={error} handleExit={() => { dispatch(setPageError(null)) }} /> */}
+            </Container>
+        </Fade>
     )
 
 }

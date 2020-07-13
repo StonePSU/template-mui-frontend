@@ -13,6 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import MuiLoadingButton from '../MuiLoadingButton';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -56,106 +57,108 @@ export default function Signup({ history, signup }) {
     }
 
     return (
-        <Container component="main" maxWidth="xs" >
-            <div className={classes.paper}>
-                <Avatar variant="rounded" className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign In
+        <Fade in={true} timeout={1000}>
+            <Container component="main" maxWidth="xs" >
+                <div className={classes.paper}>
+                    <Avatar variant="rounded" className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Create an account
                 </Typography>
-                <Grid
-                    container
-                    directon="row"
-                    spacing={1}
-                >
-                    <Grid item xs={12} sm={6} >
-                        <TextField
-                            variant="outlined"
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            required
-                            label="First Name"
-                            margin="normal"
-                            fullWidth
-                            onChange={handleInputChange}
-                            autoFocus
-                            value={inputs.firstName || ''}
-                            helperText={errors.firstName}
-                            error={Boolean(errors.firstName)}
-                        />
+                    <Grid
+                        container
+                        directon="row"
+                        spacing={1}
+                    >
+                        <Grid item xs={12} sm={6} >
+                            <TextField
+                                variant="outlined"
+                                id="firstName"
+                                name="firstName"
+                                type="text"
+                                required
+                                label="First Name"
+                                margin="normal"
+                                fullWidth
+                                onChange={handleInputChange}
+                                autoFocus
+                                value={inputs.firstName || ''}
+                                helperText={errors.firstName}
+                                error={Boolean(errors.firstName)}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                variant="outlined"
+                                id="lastName"
+                                name="lastName"
+                                type="text"
+                                required
+                                label="Last Name"
+                                margin="normal"
+                                fullWidth
+                                onChange={handleInputChange}
+                                value={inputs.lastName || ''}
+                                helperText={errors.lastName}
+                                error={Boolean(errors.lastName)}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            variant="outlined"
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            required
-                            label="Last Name"
-                            margin="normal"
-                            fullWidth
-                            onChange={handleInputChange}
-                            value={inputs.lastName || ''}
-                            helperText={errors.lastName}
-                            error={Boolean(errors.lastName)}
-                        />
-                    </Grid>
-                </Grid>
-                <TextField
-                    variant="outlined"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    type="phone"
-                    label="Phone"
-                    margin="normal"
-                    fullWidth
-                    onChange={handleInputChange}
-                    value={inputs.phoneNumber || ''}
-                    helperText={errors.phoneNumber}
-                    error={Boolean(errors.phoneNumber)}
-                />
-                <TextField
-                    variant="outlined"
-                    id="emailAddress"
-                    name="emailAddress"
-                    type="email"
-                    required
-                    label="Email"
-                    margin="normal"
-                    fullWidth
-                    onChange={handleInputChange}
-                    value={inputs.emailAddress || ''}
-                    helperText={errors.emailAddress}
-                    error={Boolean(errors.emailAddress)}
-                />
-                <TextField
-                    variant="outlined"
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    label="Password"
-                    margin="normal"
-                    fullWidth
-                    onChange={handleInputChange}
-                    value={inputs.password || ''}
-                    helperText={errors.password}
-                    error={Boolean(errors.password)}
-                />
-                <MuiLoadingButton
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    handleClick={handleSubmit}
-                    loading={loading}
-                    label="Sign Up"
-                />
-                <Link variant="body2" className={classes.link} component={RouterLink} to="/login">Already have an account? Log in</Link>
-            </div>
-            {/* <MuiErrorSnackbar isError={Boolean(error)} errorMsg={error} handleExit={() => { dispatch(setPageError(null)) }} /> */}
-        </Container>
+                    <TextField
+                        variant="outlined"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        type="phone"
+                        label="Phone"
+                        margin="normal"
+                        fullWidth
+                        onChange={handleInputChange}
+                        value={inputs.phoneNumber || ''}
+                        helperText={errors.phoneNumber}
+                        error={Boolean(errors.phoneNumber)}
+                    />
+                    <TextField
+                        variant="outlined"
+                        id="emailAddress"
+                        name="emailAddress"
+                        type="email"
+                        required
+                        label="Email"
+                        margin="normal"
+                        fullWidth
+                        onChange={handleInputChange}
+                        value={inputs.emailAddress || ''}
+                        helperText={errors.emailAddress}
+                        error={Boolean(errors.emailAddress)}
+                    />
+                    <TextField
+                        variant="outlined"
+                        id="password"
+                        name="password"
+                        type="password"
+                        required
+                        label="Password"
+                        margin="normal"
+                        fullWidth
+                        onChange={handleInputChange}
+                        value={inputs.password || ''}
+                        helperText={errors.password}
+                        error={Boolean(errors.password)}
+                    />
+                    <MuiLoadingButton
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        handleClick={handleSubmit}
+                        loading={loading}
+                        label="Sign Up"
+                    />
+                    <Link variant="body2" className={classes.link} component={RouterLink} to="/login">Already have an account? Log in</Link>
+                </div>
+                {/* <MuiErrorSnackbar isError={Boolean(error)} errorMsg={error} handleExit={() => { dispatch(setPageError(null)) }} /> */}
+            </Container>
+        </Fade>
     )
 
 
