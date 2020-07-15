@@ -27,7 +27,7 @@ export default function MuiUpdateProfile() {
 
     useEffect(() => {
         setInputs(user);
-    }, [user])
+    }, [user, setInputs])
 
 
     return (
