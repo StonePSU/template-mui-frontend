@@ -1,7 +1,7 @@
 import { setPageError } from "./error";
 import { setLoading } from "./loading";
 import { upload, api } from "../../services/api.js";
-import { setCurrentUser } from "./auth";
+import { setCurrentUser, logoutUser } from "./auth";
 
 export function uploadProfileImage(path, formData) {
 
@@ -20,6 +20,9 @@ export function uploadProfileImage(path, formData) {
                 // if error, set the page error
                 dispatch(setPageError(err));
                 dispatch(setLoading(false));
+                if (err === 'Unauthorized') {
+                    dispatch(logoutUser())
+                }
             })
 
     }
@@ -45,6 +48,9 @@ export function changePassword(path, data) {
                     // if error, set loading and page error
                     dispatch(setPageError(err));
                     dispatch(setLoading(false));
+                    if (err === 'Unauthorized') {
+                        dispatch(logoutUser())
+                    }
                     reject();
                 })
         })
@@ -69,10 +75,16 @@ export function updateUser(path, data) {
                     dispatch(setPageError("Profile information has been saved"));
                     dispatch(setLoading(false));
                     dispatch(setCurrentUser(res));
+                    resolve();
                 })
                 .catch(err => {
+                    console.log(err);
                     dispatch(setPageError(err));
                     dispatch(setLoading(false));
+                    if (err === 'Unauthorized') {
+                        dispatch(logoutUser())
+                    }
+                    reject();
                 })
 
             // if error, set the page loading and page error values
