@@ -22,7 +22,6 @@ import Link from '@material-ui/core/Link';
 import { Link as RouterLink, Switch, Route } from 'react-router-dom';
 import MuiSettings from './MuiSettings';
 import { logoutUser } from '../../store/actions/auth';
-import useAuth from '../../hooks/useAuth';
 
 const drawerWidth = 240;
 
@@ -70,8 +69,9 @@ function ResponsiveDrawer(props) {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    const profileImageUrl = useSelector(state => state.auth.user.profileImageURL)
-    const { firstName, lastName } = useSelector(state => state.auth.user);
+    const user = useSelector(state => state.auth.user);
+    const { firstName, lastName } = user;
+    const profileImageUrl = user.profileImageURL;
     const dispatch = useDispatch();
 
     const logout = () => {
@@ -115,7 +115,7 @@ function ResponsiveDrawer(props) {
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
-    return (useAuth(props) &&
+    return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>

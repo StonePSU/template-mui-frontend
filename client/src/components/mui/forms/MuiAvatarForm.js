@@ -29,8 +29,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(2),
     },
+    button: {
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText
+    }
 
 }));
 
@@ -77,7 +81,7 @@ function MuiAvatarForm() {
                 />
                 <Button
                     variant="contained"
-                    color="primary"
+                    className={classes.button}
                     startIcon={<CloudUploadIcon />}
                     disabled={disabled}
                     type="submit"

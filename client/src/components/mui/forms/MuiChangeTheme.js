@@ -46,7 +46,7 @@ export default function MuiChangeTheme() {
         setInputs(theme);
     }, [theme, setInputs])
 
-    const options = ['Blue', 'Purple', 'Pink', 'Green', 'Red'].map(option => {
+    const options = ['Black', 'Blue', 'Green', 'Orange', 'Pink', 'Purple', 'Red'].map(option => {
         return (<MenuItem key={option.toLowerCase()} value={option.toLowerCase()}>
             {option}
         </MenuItem>)
@@ -72,11 +72,24 @@ export default function MuiChangeTheme() {
                 className={classes.input}
                 select
                 fullWidth
-                name="color"
-                id="color"
+                name="primaryColor"
+                id="primaryColor"
                 label="Primary Color"
                 onChange={handleInputChange}
-                value={inputs.color || 'blue'}
+                value={inputs.primaryColor || 'blue'}
+            >
+                {options}
+            </TextField>
+            <TextField
+                variant="outlined"
+                className={classes.input}
+                select
+                fullWidth
+                name="secondaryColor"
+                id="secondaryColor"
+                label="Secondary Color"
+                onChange={handleInputChange}
+                value={inputs.secondaryColor || 'blue'}
             >
                 {options}
             </TextField>
@@ -87,9 +100,7 @@ export default function MuiChangeTheme() {
                 </RadioGroup>
             </FormControl>
             <MuiLoadingButton
-                className={classes.input}
                 variant="contained"
-                color="primary"
                 fullWidth
                 handleClick={handleSubmit}
                 loading={loading}

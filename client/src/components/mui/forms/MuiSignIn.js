@@ -95,12 +95,11 @@ export default function Login({ history, signup }) {
                             error={Boolean(errors.password)}
                         />
                         <MuiLoadingButton
-                            color="primary"
                             variant="contained"
                             fullWidth
+                            color="primary"
                             type="submit"
                             handleClick={handleSubmit}
-                            className={classes.submit}
                             loading={loading}
                             label="Login"
                         />

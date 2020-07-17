@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import MuiSignIn from "../mui/forms/MuiSignIn.js";
 import MuiSignup from '../mui/forms/MuiSignup.js';
 import MuiErrorSnackbar from "../mui/MuiErrorSnackbar";
-import MuiResponsiveDrawer from "../mui/MuiResponsiveDrawer";
+import MuiHome from "../mui/MuiHome";
 import { PersistGate } from 'redux-persist/integration/react'
 import MuiTheme from '../mui/MuiTheme';
 
@@ -25,7 +25,7 @@ function App() {
             <Switch>
               <Route path="/signup" component={MuiSignup} />
               <Route path="/login" component={MuiSignIn} />
-              <Route path="/" component={MuiResponsiveDrawer} />
+              <Route path="/" component={MuiHome} />
               <Route render={() => (<div>Not Found</div>)} />
             </Switch>
           </Router>

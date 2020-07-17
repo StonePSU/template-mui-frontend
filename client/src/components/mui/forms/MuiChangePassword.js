@@ -57,7 +57,6 @@ export default function MuiChangePassword({ history }) {
             />
             <MuiLoadingButton
                 variant="contained"
-                color="primary"
                 fullWidth
                 handleClick={handleSubmit}
                 loading={loading}
